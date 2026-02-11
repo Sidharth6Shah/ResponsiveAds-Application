@@ -8,15 +8,16 @@ console.log("Pokes", pokes);
 // Problem 1: Filter by type
 // - Populate `answer1` with Pokemon names that contain the type string
 const type = "grass";
-const answer1 = []; // TODO
+const answer1 = pokes.filter(p => p.types.includes(type)).map(p => p.name);
+
 
 // Problem 2: Filter by types (AND / OR)
 // - Populate `answer2Or` with Pokemon names that satisfy AT LEAST ONE of the given types
 // - Populate `answer2And` with Pokemon names that satisfy ALL of the given types
 // (Note that the length of the given `types` can be 1-99. (not always 1-2))
 const types = ["bug", "poison"];
-const answer2Or = []; // TODO
-const answer2And = []; // TODO
+const answer2Or = pokes.filter(p => types.some(t => p.types.includes(t))).map(p => p.name);
+const answer2And = pokes.filter(p => types.every(t => p.types.includes(t))).map(p => p.name);
 
 // See your results in your DevTools console
 console.log("Answer 1", answer1);
